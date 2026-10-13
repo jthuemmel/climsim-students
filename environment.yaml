@@ -1,0 +1,49 @@
+# ClimSim seminar: the conda environment.
+#
+#   conda env create -f environment.yaml
+#   conda activate dlwp
+#
+# The name is the same as in the lecture repository dlwp-labs.
+# If you have the environment `dlwp` from the lecture, use it.
+# It contains all packages in this file.
+name: dlwp
+
+channels:
+  - conda-forge
+
+dependencies:
+  - python=3.13
+
+  # Learning stack.
+  # On a Mac, PyTorch uses the Apple GPU (MPS).
+  # On a computer with an NVIDIA GPU, PyTorch uses CUDA.
+  # To make sure, run this command:
+  #   python -c "import torch; print(torch.cuda.is_available())"
+  # If the command prints False on a computer with an NVIDIA GPU,
+  # install the package pytorch-gpu from conda-forge.
+  - pytorch>=2.13
+  - lightning>=2.6
+  - einops>=0.8
+
+  # Data.
+  # The raw ClimSim files are netCDF files. netcdf4 reads them.
+  # cftime gives the calendar without leap years that ClimSim uses.
+  # The prepared data is a zarr store. xarray and dask read it.
+  - xarray>=2025.6
+  - zarr>=3
+  - dask
+  - netcdf4
+  - cftime
+  - numpy>=2
+  - scipy
+  - pandas>=3
+
+  # Download and configuration.
+  # requests downloads the raw files from Hugging Face.
+  # pyyaml reads the configuration files in configs/.
+  - requests
+  - pyyaml
+
+  # Figures and notebooks.
+  - matplotlib>=3.10
+  - jupyterlab

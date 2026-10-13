@@ -1,0 +1,21 @@
+# The MLP and the training recipe of the ClimSim paper (SI section 3): RAdam, cyclic learning rate, MSE.
+name: paper_mlp
+seed: 0
+
+dataset:
+  train: data/train.zarr
+  test: data/test.zarr
+  val_time: ["0008-02", "0008-02"]  # the validation data: these months of the test store
+
+network:
+  hidden: [768, 640, 512, 640, 640, 128]
+  negative_slope: 0.15
+
+trainer:
+  optimizer: radam
+  lr: 2.5e-4
+  batch_size: 3072
+  max_steps: 11844  # 12 epochs of the training data
+  schedule: {type: cyclic, max_lr: 2.5e-3, step_size: 1974}  # 2 epochs up, 2 epochs down
+  val_every_n_steps: 500
+  store_predictions: false

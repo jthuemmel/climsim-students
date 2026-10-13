@@ -1,0 +1,22 @@
+# The configuration of tutorial.ipynb: a small MLP on the small stores of the tutorial.
+name: tutorial
+seed: 0
+
+dataset:
+  train: data/tutorial/train.zarr
+  test: data/tutorial/test.zarr
+  val_time: ["0008-02", "0008-02"]
+
+network:
+  hidden: [256, 256, 256]
+  negative_slope: 0.15
+
+trainer:
+  optimizer: radam
+  lr: 2.5e-4
+  batch_size: 1024
+  max_steps: 2000
+  schedule: {type: cyclic, max_lr: 2.5e-3, step_size: 500}
+  val_every_n_steps: 250
+  progress_bar: false
+  store_predictions: true
