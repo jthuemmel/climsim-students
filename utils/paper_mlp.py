@@ -3,7 +3,7 @@ from torch import nn
 
 
 class MLP(nn.Module):
-    """The MLP of the ClimSim paper (Yu et al. 2023, SI section 3).
+    """The MLP of the ClimSim paper (Yu, Hu et al. 2024, SI section 3).
 
     `floor` is the smallest value of each output.  The paper applies a ReLU to the eight surface outputs, because
     these fluxes and rates are not negative.  With standardised targets, zero in physical units is not zero for the

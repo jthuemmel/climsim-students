@@ -8,7 +8,7 @@ Each entry is short. If an entry uses a term in *italics*, that term has its own
 ## 1. The simulation
 
 **ClimSim.**
-A public data set for machine learning (Yu et al. 2023).
+A public data set for machine learning (Yu, Hu et al. 2024).
 It contains the results of a climate simulation with the model E3SM-MMF.
 
 **Climate model.**

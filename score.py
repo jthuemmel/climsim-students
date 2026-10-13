@@ -11,7 +11,7 @@ A probabilistic prediction has one additional dimension:
 
 Two styles:
     kaggle  R2 of each target on all rows.  The Kaggle score is the mean of these values.
-    paper   MAE, MSE, and R2 in W/m2, as in ClimSim (Yu et al. 2023, SI section 5).
+    paper   MAE, MSE, and R2 in W/m2, as in ClimSim (Yu, Hu et al. 2024, SI section 5).
 
 Each metric is one function of (prediction, truth).  To add a metric, write a function and add it to `score`.
 """
